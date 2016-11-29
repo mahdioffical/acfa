@@ -481,8 +481,8 @@ function send_large_msg_callback(cb_extra, success, result)
     send_msg(destination, text, ok_cb, false)
   else
 
-    local my_text = string.sub(text, 1, 4096)
-    local rest = string.sub(text, 4096, text_len)
+    local my_text = string(text, 1, 4096)
+    local rest = string(text, 4096, text_len)
 
     local cb_extra = {
       destination = destination,
