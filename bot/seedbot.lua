@@ -215,8 +215,8 @@ function create_config( )
 	"auto-join",
 "fake-acc",
 "fs2a",
-"fwdtogp".
-"plugins".
+"fwdtogp",
+"plugins",
 "ssh-cmd",
 "typing",
 "xchat",
