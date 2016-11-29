@@ -2,7 +2,6 @@ package.path = package.path .. ';.luarocks/share/lua/5.2/?.lua'
   ..';.luarocks/share/lua/5.2/?/init.lua'
 package.cpath = package.cpath .. ';.luarocks/lib/lua/5.2/?.so'
 
-require("./bot/utils")
 
 local f = assert(io.popen('/usr/bin/git describe --tags', 'r'))
 VERSION = assert(f:read('*a'))
@@ -27,7 +26,7 @@ function on_msg_receive (msg)
       match_plugins(msg)
       if redis:get("bot:markread") then
         if redis:get("bot:markread") == "on" then
-          mark_read(receiver, ok_cb, false)
+          mark_read(receiver, ok_cb, true)
         end
       end
     end
@@ -59,7 +58,7 @@ function msg_valid(msg)
 
   -- Before bot was started
   if msg.date < os.time() - 5 then
-    print('\27[36mNot valid: old msg\27[39m')
+    print('\27[36mNot valid:  msg\27[39m')
     return false
   end
 
