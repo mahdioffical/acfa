@@ -444,7 +444,7 @@ function send_order_msg_callback(cb_extra, success, result)
       new_cb_extra.file_path = nmsg
       if typ == 'document' then
          send_document(destination, nmsg, send_order_msg_callback, new_cb_extra)
-      elseif typ == 'image' or typ == 'photo' then
+      elseif typ == 'image' or type == 'photo' then
          send_photo(destination, nmsg, send_order_msg_callback, new_cb_extra)
       elseif typ == 'audio' then
          send_audio(destination, nmsg, send_order_msg_callback, new_cb_extra)
@@ -474,8 +474,8 @@ function send_large_msg_callback(cb_extra, success, result)
   if not text or type(text) == 'boolean' then
     return
   end
-  local text_len = string.len(text)
-  local num_msg = math.ceil(text_len / text_max)
+  
+  local num_msg = math.ceil( text_max)
 
   if num_msg <= 1 then
     send_msg(destination, text, ok_cb, false)
