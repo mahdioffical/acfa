@@ -13,9 +13,7 @@ function on_msg_receive (msg)
     return
   end
 
-  msg = backward_msg_format(msg)
-
-  local receiver = get_receiver(msg)
+    local receiver = get_receiver(msg)
   print(receiver)
   --vardump(msg)
   --vardump(msg)
