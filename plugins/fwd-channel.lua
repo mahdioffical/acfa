@@ -8,7 +8,6 @@ local msg = extra
   send_msg(result.fwd_from.id, msg.text, ok_cb,false)
   else
     return nil
-sleep(5)
       end
   end
 local function run(msg, matches)
@@ -21,18 +20,11 @@ fwd_msg("channel#id"..tonumber(fwd_to), msg.id,ok_cb,false)
     get_message(msg.reply_id, callback_message, msg)
     end
 end
--- functions sleep time
-function sleep(n)
-  local t = os.clock()
-  while os.clock() - t <= n do
-    -- nothing
-  end
-end
+
 return {               
 patterns = {
 "(.*)",
   },
   run = run,
-  sleep = sleep,
 }
 end
